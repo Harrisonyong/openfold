@@ -141,9 +141,9 @@ do not affect the shapes of model parameters. For an example of initializing
 the model, consult `run_pretrained_openfold.py`.
 ### MSA_alignment
 For a fast way to caculate the msa alignment, we have tested many parallelization methods. The best method is as fallow:
-32-cpu per node
-2-tasks per per job(2-threading)
-3-process for jackhmmer\hhblits\hhsearch
+- 32-cpu per node
+- 2-tasks per per job(2-threading)
+- 3-process for jackhmmer\hhblits\hhsearch
 
 ```bash
 #!/bin/bash
