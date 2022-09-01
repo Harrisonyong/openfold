@@ -237,11 +237,11 @@ class AlignmentRunner:
         elif (self.hhblits_bfd_uniclust_runner is not None):
             funcs.append(self.bfd_uniclust_search_engine)
         
-        for i in range(len(funcs)):
-            p = Process(target=funcs[i], args=(file_id, fasta_path, output_dir))
+        for f in funcs:
+            p = Process(target= f, args=(file_id, fasta_path, output_dir))
             p.start()
             process_list.append(p)
         
         for i in process_list:
-            p.join()
+            i.join()
         
