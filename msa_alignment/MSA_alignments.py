@@ -132,7 +132,12 @@ def main(args):
         no_cpus=args.cpus_per_task,
     )
 
-    files = list(os.listdir(args.input_dir))
+    files_all = list(os.listdir(args.input_dir))
+    caculated_files = set() 
+    for i in os.listdir(args.output_dir):
+        caculated_files.add(i.split("_")[0]+".cif" )
+    files = [i for i in files_all if i not in caculated_files]
+    print(f'all_files_num:{len(files)}, files:{files}')
 
     # Do some filtering
     # if(args.mmcif_cache is not None):
